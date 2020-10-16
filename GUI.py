@@ -7,36 +7,41 @@ import sys, os
 class Okno(QMainWindow):
     def __init__(self,*args,**kwargs):
         super(Okno, self).__init__(*args,*kwargs)
-        self.setWindowTitle("POD_GUI")
+        self.setWindowTitle("Ragbaby Encryptor")
         
         titleText = QLabel()
         titleText.setText("RAGBABY")
         titleText.setAlignment(Qt.AlignCenter)
         titleText.setFont(QFont('Comic Sans',50))
+        titleText.setStyleSheet("QLabel {color : #cae8d5}")
 
         self.subtitleText = QLabel()
         self.subtitleText.setText(" ")
         self.subtitleText.setAlignment(Qt.AlignCenter)
         self.subtitleText.setFont(QFont('Comic Sans',20))
-        self.subtitleText.setStyleSheet("QLabel {color : grey}")
+        self.subtitleText.setStyleSheet("QLabel {color : #84a9ac}")
 
         self.encryptedText = QLabel()
         self.encryptedText.setText(" ")
         self.encryptedText.setAlignment(Qt.AlignCenter)
         self.encryptedText.setFont(QFont('Comic Sans',20))
-        self.encryptedText.setStyleSheet("QLabel {color : grey}")
+        self.encryptedText.setStyleSheet("QLabel {color : #84a9ac}")
 
         self.decryptedText = QLabel()
         self.decryptedText.setText(" ")
         self.decryptedText.setAlignment(Qt.AlignCenter)
         self.decryptedText.setFont(QFont('Comic Sans',20))
-        self.decryptedText.setStyleSheet("QLabel {color : grey}")
+        self.decryptedText.setStyleSheet("QLabel {color : #84a9ac}")
 
         self.messageField = QLineEdit()
         self.messageField.setPlaceholderText("Set message here...")
+        self.messageField.setFont(QFont('Comic Sans',12))
+        self.messageField.setStyleSheet("QLineEdit {color : #84a9ac}")
 
         self.keyField = QLineEdit()
         self.keyField.setPlaceholderText("Set key here...")
+        self.keyField.setFont(QFont('Comic Sans',12))
+        self.keyField.setStyleSheet("QLineEdit {color : #84a9ac}")
 
         textFielsLayout = QHBoxLayout()
         textFielsLayout.addWidget(self.messageField)
@@ -49,19 +54,31 @@ class Okno(QMainWindow):
 
         messageFileButton = QPushButton()
         messageFileButton.setText("Get message from file")
+        messageFileButton.setFont(QFont('Comic Sans',12))
+        messageFileButton.setStyleSheet("QPushButton {background : #3b6978}")
+        messageFileButton.setStyleSheet("QPushButton {color : #cae8d5}")
         messageFileButton.clicked.connect(self.messageFileClicked)
 
         keyFileButton = QPushButton()
         keyFileButton.setText("Get key from file")
+        keyFileButton.setFont(QFont('Comic Sans',12))
+        keyFileButton.setStyleSheet("QPushButton {background : #3b6978}")
+        keyFileButton.setStyleSheet("QPushButton {color : #cae8d5}")
         keyFileButton.clicked.connect(self.keyFileClicked)
 
         self.saveButton = QPushButton()
         self.saveButton.setText("Save to file")
+        self.saveButton.setFont(QFont('Comic Sans',12))
+        self.saveButton.setStyleSheet("QPushButton {background : #3b6978}")
+        self.saveButton.setStyleSheet("QPushButton {color : #cae8d5}")
         self.saveButton.clicked.connect(self.saveClicked)
         self.saveButton.setEnabled(False)
 
         self.infoButton = QPushButton()
         self.infoButton.setText("Info")
+        self.infoButton.setFont(QFont('Comic Sans',12))
+        self.infoButton.setStyleSheet("QPushButton {background : #3b6978}")
+        self.infoButton.setStyleSheet("QPushButton {color : #cae8d5}")
         self.infoButton.clicked.connect(self.infoClicked)
 
         buttonsFileLayout = QHBoxLayout()
@@ -72,10 +89,16 @@ class Okno(QMainWindow):
 
         encryptButton = QPushButton()
         encryptButton.setText("ENCRYPT")
+        encryptButton.setFont(QFont('Comic Sans',12))
+        encryptButton.setStyleSheet("QPushButton {background : #3b6978}")
+        encryptButton.setStyleSheet("QPushButton {color : #cae8d5}")
         encryptButton.clicked.connect(self.encryptClicked)
 
         decryptButton = QPushButton()
         decryptButton.setText("DECRYPT")
+        decryptButton.setFont(QFont('Comic Sans',12))
+        decryptButton.setStyleSheet("QPushButton {background : #3b6978}")
+        decryptButton.setStyleSheet("QPushButton {color : #cae8d5}")
         decryptButton.clicked.connect(self.decryptClicked)
 
         buttonsLayout = QHBoxLayout()
@@ -152,6 +175,7 @@ class Okno(QMainWindow):
     def infoClicked(self):
         info = QMessageBox()
         info.setWindowTitle("Info")
+        info.setStyleSheet("QMessageBox {background-color : #cae8d5}")
         f = open("info.txt", "r")
         data = f.read()
         info.setText(data)
@@ -207,8 +231,8 @@ class Okno(QMainWindow):
 #MAIN
 app = QApplication(sys.argv)
 window = Okno()
-window.setFixedSize(800,400)
-window.setStyleSheet("background-color: rgb(255,178,102)")
+window.setFixedSize(400,400)
+window.setStyleSheet("background-color: #204051")
 window.show()
 
 app.exec_()
