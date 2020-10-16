@@ -112,7 +112,7 @@ class Okno(QMainWindow):
         encrypted = self.encrypt(key)
         self.subtitleText.setText("ENCRYPT MODE")
         self.encryptedText.setText(encrypted)
-        self.decryptedText.setText(key)
+        self.decryptedText.setText("")
         self.saveButton.setEnabled(True)
     
     def decryptClicked(self):
