@@ -1,7 +1,7 @@
-Author: Lukasz Wylegala
+Author: Łukasz Wylegała
 Index: 140808
-Avaible characters: AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+Avaible characters: AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzęąśćż
 
 Polski:
-Szyfrator korzysta z algorytmu Ragbaby, polegajacego na tym, ze numeruje kazdy znak tekstu jawnego i zamienia go ze znakiem z klucza przesunietym o ten liczbe odpowiadajaca numerowi znaku.
-Pierwsze slowo zaczyna swoja numeracje od 1, nastepne od 2 itd.
+Szyfrator korzysta z algorytmu Ragbaby, polegającego na tym, że numeruje każdy znak tekstu jawnego i zamienia go ze znakiem z klucza przesuniętym o liczbę odpowiadającą numerowi znaku.
+Pierwsze slowo zaczyna swoją numerację od 1, nastepne od 2 itd.

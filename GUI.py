@@ -88,14 +88,14 @@ class Okno(QMainWindow):
         buttonsFileLayoutW.setLayout(buttonsFileLayout)
 
         encryptButton = QPushButton()
-        encryptButton.setText("ENCRYPT")
+        encryptButton.setText("Encrypt")
         encryptButton.setFont(QFont('Comic Sans',12))
         encryptButton.setStyleSheet("QPushButton {background : #3b6978}")
         encryptButton.setStyleSheet("QPushButton {color : #cae8d5}")
         encryptButton.clicked.connect(self.encryptClicked)
 
         decryptButton = QPushButton()
-        decryptButton.setText("DECRYPT")
+        decryptButton.setText("Decrypt")
         decryptButton.setFont(QFont('Comic Sans',12))
         decryptButton.setStyleSheet("QPushButton {background : #3b6978}")
         decryptButton.setStyleSheet("QPushButton {color : #cae8d5}")
@@ -151,7 +151,7 @@ class Okno(QMainWindow):
 
         if self.messageFromFileButton.exec():
             files = self.messageFromFileButton.selectedFiles()
-            r = open(files[0],'r')
+            r = open(files[0],'r',encoding="utf-8")
             with r:
                 data = r.read()
                 self.messageField.setText(data)
@@ -161,14 +161,14 @@ class Okno(QMainWindow):
         self.keyFromFileButton.show()
         if self.keyFromFileButton.exec():
             files = self.keyFromFileButton.selectedFiles()
-            r = open(files[0],'r')
+            r = open(files[0],'r',encoding="utf-8")
             with r:
                 data = r.read()
                 self.keyField.setText(data)
     
     def saveClicked(self):
-        f = open("result.txt", "w")
-        f.write(str(self.encryptedText.text()))
+        f = open("result.txt", "w",encoding="utf-8")
+        f.write(self.encryptedText.text())
         f.write("\n"+self.genKey())
         f.close()
 
@@ -176,7 +176,7 @@ class Okno(QMainWindow):
         info = QMessageBox()
         info.setWindowTitle("Info")
         info.setStyleSheet("QMessageBox {background-color : #cae8d5}")
-        f = open("info.txt", "r")
+        f = open("info.txt", "r", encoding="utf-8")
         data = f.read()
         info.setText(data)
         info.setFont(QFont('Comic Sans',12))
@@ -184,7 +184,7 @@ class Okno(QMainWindow):
 
     def genKey(self):
         word = self.keyField.text()
-        alphabet = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
+        alphabet = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzęąśćż'
         newWord = ''
         for x in alphabet:
             for y in word:
